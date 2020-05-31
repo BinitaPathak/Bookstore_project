@@ -1,0 +1,212 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans";
+	color:#fff;
+}
+.landing{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background-color: rgba(0,0,0,.6);
+	min-height: 100vh;
+}
+body
+{
+	height: 100%;
+	width: 100%;
+	background: url("/static/images/background_img.jpg");
+	background-size: cover;	
+	background-position: center;
+}
+
+/* .landing:before{ 
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	background-image: url(b.jpg);
+	background-size: cover;
+	content:"";
+	z-index: -1:
+}*/
+nav{
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+nav .right{
+	display: flex;
+	align-items: center;
+}
+nav a.subscribe{
+	margin-left: 20px;
+}
+a.subscribe{
+	padding: 6px 30px;
+	border:2px solid #2196f3;
+	border-radius:20px;
+	background-color: #2196f3;
+	color: #fff;
+	transition: .5s;
+}
+a.subscribe:hover{
+	background-color: #fff;
+	color: #2196f3;
+}
+nav ul{
+	display: flex;
+	list-style: none;
+}
+nav ul li a:hover,
+nav ul li a.active{
+	background-color: #fff; 
+	color:#333;
+}
+a,p{
+	font-size: 13.33333px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+a{
+	text-decoration: none;
+}
+a.brand{
+	font-size: 36px;
+	font-family:"Sacramento";
+}
+nav ul li a{
+	padding: 6px 20px;
+	border-radius: 5px;
+	margin: 5px;
+	transition: .5s;
+}
+center .home{
+	/* padding: 40px auto; */
+	text-align: center;
+	width: 60vw;
+	margin: auto;
+}
+center h1{
+	font-size: 34px;
+}
+center p{
+	line-height: 30px;
+	margin:20px 0;
+}
+center a{
+	margin-bottom: 20px;
+}
+a{
+	display: inline-block;
+	letter-spacing: 1px;
+}
+@media (max-width: 767px){
+	nav{
+		flex-direction: column;
+	}
+	nav a{
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	nav .right{
+		justify-content: center;
+	}
+	nav ul li a{
+		text-align: center;
+	}
+	nav ul{
+		flex-direction: column;
+	}
+	nav ul li{
+		margin-bottom: 5px;
+	}
+	nav a.subscribe{
+		display: none;
+	}
+}
+
+
+/*-------Search button------------*/
+.wrap{
+	position:absolute;
+	width: 30%;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+.search{
+	width:100%;
+	position: relative;
+}
+.searchterm
+{
+	float:left;
+	width:100%;
+	height:30%;
+	border: 3px solid #2196f3;/*#00B4CC*/
+	padding:6px;
+	color: black;
+	font-size: 17px;
+	outline: none;
+}
+.searchbtn
+{
+	position:absolute;
+	width:50px;
+	height:44px;
+	border: 1px solid #2196f3;
+    /*#00B4CC;*/
+
+	background-color:#2196f3;
+    /*#00B4CC;*/
+
+	text-align: center;
+	color:#fff;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+
+/*--------Book count-----------*/
+
+
+.counter-section
+{
+	margin: 10% auto;
+	color: #fff;
+}
+.icon-box
+{
+	border: 1px solid #fff;
+	height: 50px;
+	width: 50px;
+	/* position:relative; */
+	/* top: 50px; */
+	/* top:50px; */
+	/* align-items: center; */
+	/* padding-top: 50px; */
+	margin: 20px auto;
+	transform: rotate(45deg);
+}
+.icon-box .fa
+{
+	font-size: 20px;
+	margin: 15px 30px 25px 10px;
+	/* position:relative; */
+	/* top: 50px; */
+	/* align-items: center;*/
+	/* padding-top: 50px; */
+	color: #ffc800;
+	transform: rotate(-45deg);
+}
+.counter-box p
+{
+	font-size: 15px;
+}
+.counter-box .counter
+{
+	font-size: 15px;
+}
+
+

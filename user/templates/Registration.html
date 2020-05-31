@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block css_js %}
+<link href="{% static 'js/bootstrap-4.4.1-dist/css/bootstrap.css'}" rel="stylesheet" type="text/css"
+      xmlns:color="http://www.w3.org/1999/xhtml">
+<link href="/js/bootstrap-4.4.1-dist/js/bootstrap.js" rel="stylesheet" type="text/css">
+<link href="{% static 'css/Registration.css' %}" rel="stylesheet" type="text/css">
+<title>SellerLogin<</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-md-offset-3" id="form">
+            <center><b class="registration">Registration Form</b></center>
+            <form method="post">{% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field | add_class:"form-control" }}
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="submit">
+                    <input type="reset" class="btn btn-danger" value="Reset">
+                </div>
+                <div style="font-size:15px; color:black;">Already have an account? <a href="{% url 'homepage' %}">Login<div>
+<!--                <input class="btn btn-primary" type="submit" value="Register">-->
+<!--                <div style="font-size:15px; color:"black">Already have an account? <a href="#">Login<div>-->
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

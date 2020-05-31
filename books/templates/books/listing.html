@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <h3 class="mt-2">{{title}}</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            {% if user.is_authenticated and user.user_type == "seller" %}
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            {% else%}
+            <th scope="col">Purchase</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in object_list %}
+        <tr>
+            <th scope="row"><a href="{% url 'books.show' pk=book.id %}">{{book.title|title}}</a></th>
+            <td><a href="{% url 'authors.show' pk=book.author.id %}">{{book.author|title}}</a></td>
+            {% if user.is_authenticated and user.user_type == "seller" %}
+            <td><a href="{% url 'books.edit' pk=book.id %}">Edit Book</a></td>
+            <td><a href="{% url 'books.delete' pk=book.id %}">Delete Book</a></td>
+            {% else %}
+            <td><a class='subscribe' href="">Purchase Book</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

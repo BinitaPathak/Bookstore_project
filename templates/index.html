@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block index_wrapper %}
+<center class="home">
+    <br/><br/><br/>
+    <h1>Welcome to Bookstore!</h1>
+    <p>DISCOVER THE BEST BOOKS ONLINE WITH US</p>
+    {% if not user.is_authenticated %}
+    <a class='subscribe' href="{% url 'user_login' %}">Buyer Login</a>&nbsp&nbsp&nbsp
+    <a class='subscribe' href="{% url 'seller_login' %}">Seller Login</a>&nbsp&nbsp&nbsp
+    {% endif %}
+    <!--    <a href="{% url 'registration' %}" class='subscribe'>Registeration</a>-->
+</center>
+<div  class="wrap">
+    <div class="search">
+        <input type="text" class="searchterm" name="" placeholder="Search by title,author or series">
+        <button type="submit" class="searchbtn">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</div>
+<div class="container counter-section">
+    <div class="row text-center">
+        <div class="col-md-3 counter-box">
+            <div class="icon-box">
+                <i class="fa fa-book"></i>
+            </div>
+            <!-- <div class="aaa"> -->
+            <p class="counter">900</p>
+            <p>AVAILABLE BOOK</p>
+            <!-- <div> -->
+        </div>
+        <div class="col-md-3 counter-box">
+            <div class="icon-box">
+                <i class="fa fa-users"></i>
+            </div>
+            <!-- <div class="aaa"> -->
+            <p class="counter">250</p>
+            <p>USERS</p>
+            <!-- </div> -->
+        </div>
+        <div class="col-md-3 counter-box">
+            <div class="icon-box">
+                <i class="fa fa-pencil"></i>
+            </div>
+            <!-- <div class="aaa"> -->
+            <p class="counter">400</p>
+            <p>AUTHORS</p>
+            <!-- </div> -->
+        </div>
+        <div class="col-md-3 counter-box">
+            <div class="icon-box">
+                <i class="fa fa-bookmark"></i>
+            </div>
+            <!-- <div class="aaa"> -->
+            <p class="counter">200</p>
+            <p>CATEGORIES</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+<!--------COUNTER--------------->
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script>
+    jQuery(document).ready(function($)
+    {
+        $('.counter').counterUp
+        ({
+            delay: 10,
+            time: 1000
+        });
+    });
+
+</script>
+
+<div class="container-fluid about bg-info text-white"><br><br>
+	<h1 class="text-center text-warning font-weight-bold" href="#">About </h1>
+<br>
+<p>This project benefits all the areas like institutions, students,
+	organizations also reduces the management of the production of
+	new books. Since everyone has better choice to buy and resell
+	books at an affordable prices. One can buy and sell books with
+	just few clicks. This website does not cost any harm to
+	economical as well as social welfare.</p> <br>
+
+<p>The online bookstore will not only help the vendors to sell their
+	books that are in stock but also will also help the customers to
+	buy their books at ease. It can also help in the improvement of
+	the business of small vendors. It provides the platform for both
+	the small and the large book vendors to sell their books at ease.</p> <br>
+
+<p>Customer can buy and sell books as per their needs and they can
+	make payment online itself.</p><br>
+
+<p>This system saves both time and travelling cost of customers.
+	It will be also useful for the small vendors to sell their books
+	online and make more profit out of it.</p><br><br><br><br><br><br>
+</div><br><br>
+{% endblock %}

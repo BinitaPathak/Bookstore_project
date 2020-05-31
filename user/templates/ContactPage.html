@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_js %}
+<link href="{% static 'css/ContactPage.css' %}" rel="stylesheet" type="text/css">
+<title>ContactPage</title>
+{% endblock %}
+{% block content %}
+<div class="contact-form">
+    <h1 style="font-weight:bold">Contact Us</h1>
+    <div class="txtb">
+        <label>Full Name:</label>
+        <input name="" placeholder="Enter Your Name" type="text" value="">
+    </div>
+
+    <div class="txtb">
+        <label>Email:</label>
+        <input name="" placeholder="Enter Your Email" type="email" value="">
+    </div>
+
+    <div class="txtb">
+        <label>Phone Number:</label>
+        <input name="" placeholder="Enter Your Phone Number" type="text">
+    </div>
+
+    <div class="txtb">
+        <label>Message :</label>
+        <textarea></textarea>
+    </div>
+    <a class="btn">Send</a>
+</div>
+{% endblock %}

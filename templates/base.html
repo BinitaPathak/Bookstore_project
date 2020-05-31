@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+                .right ul ul{
+                    display: none;
+                    position:fixed;
+                }
+                .right ul li:hover > ul{
+                    display: block;
+                }
+
+    </style>
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Sacramento&display=swap" rel="stylesheet">
+    <link href="{% static 'js/bootstrap-4.4.1-dist/css/bootstrap.css'}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Bookstore</title>
+
+    <!-- My stylesheet-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+    {% block css_js %} {% endblock %}
+</head>
+<body>
+<nav>
+    <a class='brand' href="{% url 'homepage' %}">bookstore</a>
+    <div class='right'>
+        <ul>
+            <li><a class='active' href="{% url 'homepage' %}">Home</a></li>
+            <li><a href="{% url 'homepage' %}">About</a></li>
+            <li><a href="{% url 'homepage' %}">Services</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'books.index' %}">Books</a>
+                {% if user.user_type == "seller" %}
+                <ul>
+                    <li><a href="{% url 'books.create' %}">Add Book</a></li>
+                </ul>
+                {% endif %}
+            </li>
+            <li><a href="{% url 'authors.index' %}">Authors</a>
+                {% if user.user_type == "seller" %}
+                <ul>
+                    <li><a href="{% url 'authors.create' %}">Add Author</a></li>
+                </ul>
+                {% endif %}
+            </li>
+            <li><a href="{% url 'categories.index' %}">Categories</a>
+                 {% if user.user_type == "seller" %}
+                <ul>
+                    <li><a href="{% url 'categories.create' %}">Add Category</a></li>
+                </ul>
+                {% endif %}
+            </li>
+
+            <!--                    <li><a href="{% url 'authors.create' %}">Add Author</a></li>-->
+            <!--                    <li><a href="{% url 'categories.create' %}">Add Category</a></li>-->
+            <!--                    <li><a href="{% url 'books.create' %}">Add Book</a></li>-->
+            <li><a href="/auth/logout">Log out</a></li>
+            {%else%}
+            <a class='subscribe' href="{% url 'registration' %}">Registeration</a>
+            <!--                    <a class='subscribe' href="/auth/login">Admin-Login</a>-->
+            {% endif %}
+
+        </ul>
+
+
+        <!--                        <li class="nav-item">-->
+        <!--                            <a class="nav-link" href="{% url 'books.create' %}">Add Book</a>-->
+        <!--                        </li>-->
+        <!--                        <li class="nav-item">-->
+        <!--                            <a class="nav-link" href="{% url 'authors.create' %}">Add Author</a>-->
+        <!--                        </li>-->
+        <!--                        <li class="nav-item">-->
+        <!--                            <a class="nav-link" href="{% url 'categories.create' %}">Add Category</a>-->
+        <!--                        </li>-->
+    </div>
+</nav>
+{% block index_wrapper %}{% endblock %}
+<!-- Page Content -->
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+{% block scripts %}{% endblock %}
+</body>
+</html>

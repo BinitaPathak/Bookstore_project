@@ -1,0 +1,29 @@
+body{
+	height: 100%;
+	width: 100%;
+	background: url("/static/images/background_img.jpg");
+	background-size: cover;	
+	background-position: fixed;
+}
+form{
+    font-weight: bold;
+    color: black;
+	background: #fff;
+}
+.form-container{
+	border-radius: 10px;
+	padding:30px;
+	box-shadow: 0px 0px 10px 0px;
+}
+.align{
+    width:180%;
+    padding-left:350px;
+    padding-top:60px;
+}
+/* .bg{
+	width:60px;
+	height:60px;
+	position:absolute;
+	top: -35px;
+	Left: 40%;
+} */
