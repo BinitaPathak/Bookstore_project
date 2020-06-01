@@ -29,3 +29,9 @@ class Cart(models.Model):
     order_date = models.DateField(null=True)
     payment_type = models.CharField(max_length=100, null=True)
     payment_id = models.CharField(max_length=100, null=True)
+
+
+class BookOrder(models.Model):
+    book = models.ForeignKey(Book)
+    cart = models.ForeignKey(Cart)
+    quantity = models.IntegerField()
