@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
+<div>
+    <form action="{% url 'books.index' %}" method="GET" style="margin: 0"  align="center">
+            <input name="search" placeholder="Search..." value="{{request.GET.search}}">
+            <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
     <h3 class="mt-2">{{title}}</h3>
     <table class="table">
         <thead>
@@ -25,7 +29,7 @@
             <td><a href="{% url 'books.edit' pk=book.id %}">Edit Book</a></td>
             <td><a href="{% url 'books.delete' pk=book.id %}">Delete Book</a></td>
             {% else %}
-            <td><a class='subscribe' href="">Purchase Book</a></td>
+            <td><a class='subscribe' href="">Add to cart</a></td>
             {% endif %}
         </tr>
         {% endfor %}
