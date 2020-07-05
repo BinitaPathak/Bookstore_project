@@ -12,10 +12,11 @@
 from django.urls import path
 from django.views.generic import TemplateView
 
-from books.views import BooksListView, BookCreateView, BookDetailView, BookUpdateView, BookDeleteView
+from books.views import BooksListView, BookCreateView, BookDetailView, BookUpdateView, BookDeleteView, \
+    CartView
 
 urlpatterns = [
-    path('books', BooksListView.as_view(), name='books.index'),
+    path('books/', BooksListView.as_view(), name='books.index'),
     path('books/<int:pk>', BookDetailView.as_view(), name='books.show'),
     path('books/<int:pk>/edit', BookUpdateView.as_view(), name='books.edit'),
     path('books/<int:pk>/delete', BookDeleteView.as_view(), name='books.delete'),
@@ -23,4 +24,6 @@ urlpatterns = [
     path('user-login/', TemplateView.as_view(template_name="UserLogin.html"), name="user_login"),
     path('seller-login/', TemplateView.as_view(template_name="SellerLogin.html"), name="seller_login"),
     path('contact/', TemplateView.as_view(template_name="ContactPage.html"), name="contact"),
+    # path('search/', SearchResultsView.as_view(), name='search_results'),
+    path('books/cart', CartView.as_view(), name='cart'),
 ]
